@@ -29,7 +29,9 @@ export class UserService {
   async createAccount(input: CreateAccountInput): Promise<CreateAccountOutput> {
     try {
       const { email, phoneNumber } = input;
-      const user = await this.users.findOne({ email, phoneNumber });
+      const user = await this.users.findOne({
+        where: [{ email }, { phoneNumber }],
+      });
       if (user) {
         return {
           ok: false,
@@ -54,7 +56,9 @@ export class UserService {
   async logIn(input: LogInInput): Promise<LogInOuput> {
     try {
       const { email, phoneNumber } = input;
-      let user = await this.users.findOne({ email, phoneNumber });
+      let user = await this.users.findOne({
+        where: [{ email, phoneNumber }],
+      });
       if (!user) {
         const {
           ok: createAccountResult,

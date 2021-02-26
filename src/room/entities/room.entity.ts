@@ -1,4 +1,9 @@
-import { Field, InputType, ObjectType } from '@nestjs/graphql';
+import {
+  Field,
+  InputType,
+  ObjectType,
+  registerEnumType,
+} from '@nestjs/graphql';
 import { CategoryEntity } from 'src/category/entities/category.entity';
 import { CommonEntity } from 'src/common/entities/common.entity';
 import { MsgEntity } from 'src/msg/entities/msg.entity';

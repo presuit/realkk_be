@@ -1,6 +1,7 @@
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { AuthRole } from 'src/common/auth.role';
 import { AuthUser } from 'src/common/authUser';
+import { UserService } from './user.service';
 import {
   CreateAccountInput,
   CreateAccountOutput,
@@ -15,7 +16,6 @@ import {
   UpdateProfileInput,
   UpdateProfileOutput,
 } from './dtos/updateProfile.dto';
-import { UserService } from './user.service';
 
 @Resolver()
 export class UserResolver {
